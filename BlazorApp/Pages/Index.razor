@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<h1>SignalR sample blazor app</h1>
+
+<MudGrid>
+    <MudItem xs="12" sm="5" md="5">
+        <MudText Typo="Typo.h6" GutterBottom="true">Messages</MudText>
+        <MudPaper Width="100%">
+            <MudList Dense="true">
+                @foreach (var message in messages)
+                {
+                    <MudListItem Text="@message" />
+                }
+            </MudList>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="5" md="5">
+        <MudText Typo="Typo.h6" GutterBottom="true">Send message</MudText>
+        <MudPaper Width="100%">
+            <MudTextField @bind-Value="messageToSend" Label="New message" Variant="Variant.Text"></MudTextField>
+            <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary" @onclick="SendMessage">Send</MudButton>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
